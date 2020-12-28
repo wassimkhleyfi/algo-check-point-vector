@@ -1,0 +1,37 @@
+FUNCTION dot_product(vect_A,vect_B :ARRAY_OF INTEGER[3],) : INTEGER
+VAR
+ ps :INTEGER:=0 ;  
+i:INTEGER ; 
+BEGIN
+    FOR i FROM 0 TO 2 STEP 1  DO
+    ps := ps +(vect_A[i] * vect_B[i]);
+END_FOR
+    RETURN ps ;
+END
+
+ALGORITHM orthogonal_vectors
+VAR
+ Vect : ARRAY_OF ARRAY_OF INTEGER[3] ;
+ i,j,n :INTEGER ;
+
+BEGIN
+    
+    REPEAT
+        read(n)
+    UNTIL (n%2 == 0)
+    
+    FOR i FROM min TO n-1 STEP 1  DO
+        read (Vect[n]);
+    END_FOR
+    
+
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM 0 TO  n-1 STEP 1 DO
+     
+    IF (dot_product(vect[i],vect[j]) == 0) THEN
+      write ("vector" +i+ "and vector" +j+"are orthogonals" );
+    END_IF 
+    END_FOR
+    END_FOR
+
+END
